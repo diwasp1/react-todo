@@ -50,7 +50,7 @@ function App(props) {
 
   function editTask(id, newName) {
     const editedTaskList = tasks.map((task) => {
-      if (id == task.id) {
+      if (id === task.id) {
         return { ...task, name: newName };
       }
       return task;
@@ -91,7 +91,7 @@ function App(props) {
   const listHeadingRef = useRef(null);
 
   const prevTaskLength = usePrevious(tasks.length);
-  
+
   useEffect(() => {
     if (tasks.length - prevTaskLength === -1) {
       listHeadingRef.current.focus();
@@ -110,7 +110,6 @@ function App(props) {
         {headingText}
       </h2>
       <ul
-        role="list"
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading"
       >
